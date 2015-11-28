@@ -6,12 +6,12 @@ import ChampData from '../components/champData';
 import * as ChampActions from '../actions/champions';
 
 
-class showChampions extends Component {
+class ChampView extends Component {
   //mounting champions when component mounts
   componentWillMount(){
     const { fetchChamps } = this.props;
     fetchChamps();
-  }  
+  }
 
   selectChamp(event){
     let { changeSelectedChamp, championName, selectChampion, loadChampData, selectedChamp } = this.props;
@@ -61,5 +61,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators(ChampActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(showChampions);
-
+export default connect(mapStateToProps, mapDispatchToProps)(ChampView);

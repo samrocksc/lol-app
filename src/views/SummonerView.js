@@ -10,8 +10,8 @@ import SummonerData from '../components/summonerData';
 
 
 //kick off the main component
-export default class showSummoner extends Component {
-//preload any data we may need 
+export default class SummonerView extends Component {
+//preload any data we may need
   componentDidMount(){
     console.log('Current Props',this.props)
   }
@@ -20,7 +20,7 @@ export default class showSummoner extends Component {
     const { fetchSummonerId } = this.props;
     let summonerName = ReactDOM.findDOMNode(this.refs.summonerName).value;
     console.log('looking up:'+summonerName);
-    fetchSummonerId(summonerName);    
+    fetchSummonerId(summonerName);
   }
   render(){
     const { summonerName, summonerId, summonerInfo } = this.props;
@@ -31,7 +31,7 @@ export default class showSummoner extends Component {
     }
     return(
       <div>
-        <form onSubmit={this.formAction.bind(this)}>                   
+        <form onSubmit={this.formAction.bind(this)}>
           <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input ref="summonerName" className="mdl-textfield__input" type="text" id="summonerName" />
             <label className="mdl-textfield__label" htmlFor="summonerName">Summoner Name</label>
@@ -61,4 +61,4 @@ function mapDispatchToProps(dispatch){
 }
 
 //connect the component and props to the store
-export default connect(mapStateToProps, mapDispatchToProps)(showSummoner);
+export default connect(mapStateToProps, mapDispatchToProps)(SummonerView);

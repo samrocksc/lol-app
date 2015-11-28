@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as GameActions from '../actions/game';
 
-class showIndex extends Component {
+class IndexView extends Component {
   componentDidMount(){
     const { fetchStatus, fetchShardList } = this.props;
     console.log('componentDidMount props:', this.props);
@@ -14,7 +14,7 @@ class showIndex extends Component {
   selectServer(event){
     let { selectedServer, fetchSelectedStatus } = this.props
     selectedServer = event.target.value
-    console.log('selected a server!', selectedServer); 
+    console.log('selected a server!', selectedServer);
     fetchSelectedStatus(selectedServer);
   }
   render(){
@@ -60,5 +60,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators(GameActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(showIndex);
-
+export default connect(mapStateToProps, mapDispatchToProps)(IndexView);
